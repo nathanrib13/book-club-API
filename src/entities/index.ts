@@ -1,3 +1,3 @@
-import { Books } from "./movies.entity";
+import { Book } from "./books.entity";
 
-export { Books };
+export { Book };

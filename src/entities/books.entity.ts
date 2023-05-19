@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("books")
 class Book {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("increment")
   id: number;
 
   @Column({ length: 120, unique: true })

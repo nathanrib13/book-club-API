@@ -17,21 +17,12 @@ const dataSourceConfig = (): DataSourceOptions => {
   }
 
   const nodeEnv: string | undefined = process.env.NODE_ENV;
-
-  if (nodeEnv === "dev") {
-    return {
-      type: "postgres",
-      url: dbUrl,
-      synchronize: false,
-      logging: true,
-      migrations: [migrationsPath],
-      entities: [entitiesPath],
-    };
-  }
   return {
-    type: "sqlite",
-    database: ":memory:",
-    synchronize: true,
+    type: "postgres",
+    url: dbUrl,
+    synchronize: false,
+    logging: true,
+    migrations: [migrationsPath],
     entities: [entitiesPath],
   };
 };
