@@ -14,4 +14,18 @@ const createUserSchemaReturn = createUserSchema
   })
   .omit({ password: true });
 
-export { createUserSchema, createUserSchemaReturn };
+const allUsersSchema = z.array(createUserSchemaReturn);
+
+const userUpdateSchema = z.object({
+  name: z.string().max(45).optional(),
+  email: z.string().email().max(45).optional(),
+  password: z.string().optional(),
+  username: z.string().max(35).optional(),
+});
+
+export {
+  createUserSchema,
+  createUserSchemaReturn,
+  userUpdateSchema,
+  allUsersSchema,
+};
